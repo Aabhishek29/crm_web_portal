@@ -27,7 +27,7 @@ const Routes = (props) => {
 	return (
 		<NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
 			<Stack.Navigator>
-				<Stack.Screen name="Login" component={Login} />
+				<Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	)
