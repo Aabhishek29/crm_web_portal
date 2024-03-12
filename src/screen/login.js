@@ -2,7 +2,9 @@ import React from "react";
 import {
 	View,
 	Text,
-	StyleSheet
+	StyleSheet,
+	TouchableOpacity,
+	TextInput
 } from 'react-native';
 import { COLOR } from "../utils/colors";
 
@@ -11,20 +13,43 @@ class Login extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			email: "",
+			username: "",
 			password: "",
-			theme: "dark"
 		}
 	}
 
-	render(){
+	render() {
 		const {
-			theme
+			username,
+			password
 		} = this.state;
-		return(
+		return (
 			<View style={styles.container}>
 				<View style={styles.subContainer}>
-					<Text style={styles.heading}>Login</Text>
+					<Text style={styles.heading}>Login to sabkamistry</Text>
+					<View style={{width: "60%", marginTop: 20}}>
+						<Text style={{color: "#ccc", fontWeight: "500"}}>USERNAME</Text>
+						<TextInput
+							style={styles.input}
+							onChangeText={(val)=>this.setState({username: val})}
+							value={username}
+							placeholder="USERNAME"
+							placeholderTextColor={"#cccccc"}
+						/>
+					</View>
+					<View style={{width: "60%", marginTop: 20}}>
+						<Text style={{color: "#ccc", fontWeight: "500"}}>PASSWORD</Text>
+						<TextInput
+							style={styles.input}
+							onChangeText={(val)=>this.setState({password: val})}
+							value={password}
+							placeholder="USERNAME"
+							placeholderTextColor={"#cccccc"}
+						/>
+					</View>
+					<TouchableOpacity style={styles.loginBtn}>
+						<Text style={{ color: "#fff", fontWeight: '500' }}>Log In</Text>
+					</TouchableOpacity>
 				</View>
 			</View>
 		)
@@ -43,12 +68,30 @@ const styles = StyleSheet.create({
 		width: '40%',
 		backgroundColor: COLOR.WHITE,
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
+		padding: 30
 	},
 	heading: {
 		color: COLOR.HEADING_COLOR,
 		fontSize: 32,
 		fontWeight: '700'
+	},
+	input: {
+    height: 40,
+    marginTop: 12,
+    borderWidth: 1,
+		borderColor: "#cccccc",
+    padding: 10,
+  },
+	loginBtn: {
+		backgroundColor: COLOR.COLOR_PRIMARY,
+		width: 150,
+		paddingVertical: 10,
+		paddingHorizontal: 15,
+		borderRadius: 10,
+		marginTop: 20,
+		justifyContent: 'center',
+		alignItems: 'center'
 	}
 })
 
