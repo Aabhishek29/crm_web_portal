@@ -8,9 +8,9 @@ import Routes from './src/routes';
 
 export default function App() {
   return (
-    // <Provider store={Store}>
+    <Provider store={Store}>
       <Routes />
-    // </Provider>
+    </Provider>
   );
 }
 

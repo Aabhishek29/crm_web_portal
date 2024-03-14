@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as Linking from 'expo-linking';
 import { NavigationContainer } from '@react-navigation/native';
 import Login from "./screen/login";
+import DashBoard from "./screen/dashboard";
 
 const prefix = Linking.createURL('/');
 
@@ -16,7 +17,8 @@ const linking = {
 		App: {
 			path: "/",
 			Screen: {
-				Login: '/'
+				Login: '/',
+				DashBoard: '/dashboard'
 			}
 		}
 	}
@@ -28,6 +30,7 @@ const Routes = (props) => {
 		<NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
 			<Stack.Navigator>
 				<Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
+				<Stack.Screen name="Dashboard" component={DashBoard} options={{ headerShown: false }}/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	)
